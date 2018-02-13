@@ -1,12 +1,9 @@
 scl = 20
 col = 800 / scl
 row = 600 / scl
-img = loadImage("sketch_5.jpg")
 
 def setup():
   size(800, 600, P3D)
-  col = width / scl
-  row = height / scl
 
 def draw():
   background(0)
@@ -17,7 +14,6 @@ def draw():
   stroke(0)
   for y in range(0, row):
     beginShape(TRIANGLE_STRIP)
-    texture(img)
     for x in range(0, col):
         n = noise(x * scl, y * scl)
         m = noise(x * scl, (y + 1) * scl)
