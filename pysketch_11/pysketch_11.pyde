@@ -14,7 +14,6 @@ def draw ():
     ortho()
     rotateY(radians(45))
     rotateX(radians(-15))
-    # rotateY(radians(frameCount * 0.1))
     for x in range(-15, 15):
       for y in range(-15, 15):
         c = color(noise(x, y) * 127.5 + 127.5, noise(x, y) * 127.5 + 127.5, noise(x, y) * 127.5 + 127.5)    
