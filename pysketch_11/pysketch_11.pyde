@@ -6,6 +6,7 @@ def setup ():
     noStroke()
     ellipseMode(CENTER)
     noFill()
+    textSize(20)
 
 def draw ():
     background(0)
@@ -14,14 +15,17 @@ def draw ():
     rotateY(radians(45))
     rotateX(radians(-15))
     # rotateY(radians(frameCount * 0.1))
-    for x in range(-20, 20):
-      for y in range(-20, 20):
+    for x in range(-15, 15):
+      for y in range(-15, 15):
         c = color(noise(x, y) * 127.5 + 127.5, noise(x, y) * 127.5 + 127.5, noise(x, y) * 127.5 + 127.5)    
         fill(c)
         d = dist(x, y, 0, 0)
         pushMatrix()
         translate(x * 10, y * 10 + d * noise(x, y), 200 * sin(radians(frameCount + d * 2)) + noise(x, y) * d * tan(radians(frameCount * d * 0.05 +  2 * d)))
         rotateX(radians(frameCount *2 + d * 10))
-        rect(0, 0, 10, 10)
+        if noise(x, y) < 0.5:
+          text("o", 0, 0)
+        else:
+          text("1", 0, 0)  
         popMatrix()
 
